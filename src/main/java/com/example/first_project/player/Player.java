@@ -1,6 +1,19 @@
 package com.example.first_project.player;
 
+import jakarta.persistence.*;
+
+@Entity //hibernate
+@Table //table in our database
 public class Player {
+    @Id
+    @SequenceGenerator(
+            name = "player_sequence",
+            sequenceName = "player_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "player_sequence"
+    )
     private Long id;
     private String fName;
     private String lName;

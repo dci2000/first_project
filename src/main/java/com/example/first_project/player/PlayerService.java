@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+//BUSINESS LOGIC
 @Service
 public class PlayerService {
     public List<Player> getPlayers(){
