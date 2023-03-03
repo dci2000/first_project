@@ -1,7 +1,11 @@
 package com.example.first_project.player;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class PlayerService {
     public List<Player> getPlayers(){
         return List.of(
