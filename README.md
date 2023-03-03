@@ -43,4 +43,17 @@ packaging: jar
 ### Additional notes
 	-Structure into API layer, Service Layer, Data Access Layer + database
 
+#### API layer
+	-controller of the player/game class 
 
+
+#### Service layer
+	-responsible for bussiness logic
+
+#### Data access layer
+	-repository
+
+
+
+### Swagger UI
+	-URL address: /swagger-ui.html

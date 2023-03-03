@@ -10,16 +10,14 @@ import java.util.List;
 @RequestMapping(path = "api/v1/player")
 public class PlayerController {
 
+    private final PlayerService playerService;
+
+    public PlayerController(PlayerService playerService){
+        this.playerService = playerService;
+    }
+
     @GetMapping()
-    public List<Player> hello(){
-        return List.of(
-                new Player(
-                        1L,
-                        "Petr",
-                        "Cihak",
-                        "123456789",
-                        "email.testemail@gmail.com"
-                )
-        );
+    public List<Player> getPlayers(){
+        return playerService.getPlayers();
     }
 }
