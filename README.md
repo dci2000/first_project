@@ -13,6 +13,18 @@ Swagger/openapi: 2.0.2
 Junit jupiter: 5.9.2
 packaging: jar
 ```
+## Requirements 
+	- two entities in postgreSQL jpa repository
+	- Player and game
+	- those entitites many to many relationship in database
+	- swagger for client which implements the interface
+
+### Player fields
+	- id, name, lastname, phone, email
+
+### Game fields
+	- id, name, result, start, end
+
 
 ## Dependencies
 
