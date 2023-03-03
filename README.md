@@ -6,8 +6,8 @@
 ## Technologies
 
 ```
-java: 17
-Spring boot: 3.0.1
+java: 19
+Spring boot: 3.0.3
 Maven
 Swagger/openapi: 2.0.2
 Junit jupiter: 5.9.2
@@ -39,5 +39,8 @@ packaging: jar
 </dependency>
 ```
 
+
+### Additional notes
+	-Structure into API layer, Service Layer, Data Access Layer + database
 
 
