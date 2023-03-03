@@ -17,6 +17,7 @@ packaging: jar
 	- two entities in postgreSQL jpa repository
 	- Player and game
 	- those entitites many to many relationship in database
+	- API calls to make a player and game and to display them
 	- swagger for client which implements the interface
 
 ### Player fields
