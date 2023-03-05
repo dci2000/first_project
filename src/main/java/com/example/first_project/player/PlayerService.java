@@ -1,6 +1,6 @@
 package com.example.first_project.player;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,15 +9,17 @@ import java.util.List;
 //BUSINESS LOGIC
 @Service
 public class PlayerService {
+
+    private final PlayerRepository playerRepository;
+    @Autowired
+    public PlayerService(PlayerRepository playerRepository){
+        this.playerRepository = playerRepository;
+    }
     public List<Player> getPlayers(){
-        return List.of(
-                new Player(
-                        1L,
-                        "Petr",
-                        "Cihak",
-                        "123456789",
-                        "email.testemail@gmail.com"
-                )
-        );
+        return playerRepository.findAll();
+    }
+
+    public void addNewPlayer(Player player) {
+        playerRepository.save(player);
     }
 }

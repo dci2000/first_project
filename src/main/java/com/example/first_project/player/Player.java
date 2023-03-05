@@ -1,9 +1,12 @@
 package com.example.first_project.player;
 
+import com.example.first_project.game.Game;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity //hibernate
-@Table //table in our database
+@Table(name = "PLAYER") //table in our database
 public class Player {
     @Id
     @SequenceGenerator(
@@ -19,6 +22,16 @@ public class Player {
     private String lName;
     private String phone;
     private String email;
+    //player entity is the owner side of the relation
+    @ManyToMany
+    @JoinTable(name = "PLAYER_GAME_TABLE",
+            joinColumns = {
+                    @JoinColumn(name = "player_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "game_id", referencedColumnName = "id")
+            })
+    private Set<Game> games;
 
     //empty constructor
     public Player(){}
@@ -82,6 +95,14 @@ public class Player {
     public void setEmail(String email) {
         this.email = email;
     }
+
+//    public Set<Game> getGames() {
+//        return games;
+//    }
+//
+//    public void setGames(Set<Game> games) {
+//        this.games = games;
+//    }
 
     // toString() method
 

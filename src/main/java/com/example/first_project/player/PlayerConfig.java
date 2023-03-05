@@ -21,7 +21,7 @@ public class PlayerConfig {
                     "Daniel",
                     "Heim",
                     "777444507",
-                    "email.testemail@gmail.com"
+                    "email.danielHeim@gmail.com"
             );
             repository.saveAll(
                     List.of(Daniel, Petr)
