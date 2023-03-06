@@ -20,8 +20,9 @@ packaging: jar
 	- API calls to make a player and game and to display them [x]	
 	- swagger for client which implements the interface [x]
 	- adding rest of CRUD functionalities []
-	- use best practice of api endpoints []
+	- use best practice of api endpoints [x]
 	- adding the authentication []
+	- fix the authentication package []
 
 ### Player fields
 	- id, name, lastname, phone, email

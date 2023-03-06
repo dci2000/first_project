@@ -20,11 +20,11 @@ public class GameController {
 
     }
 
-    @GetMapping("getGames")
+    @GetMapping("displayAll")
     public List<Game> getGames(){
         return gameService.getGames();
     }
-    @PostMapping("postGame")
+    @PostMapping("add")
     public void postGame(Game game){
         gameService.addNewGame(game);
     }
