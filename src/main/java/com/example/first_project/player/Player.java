@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity //hibernate
-@Table(name = "PLAYER") //table in our database
+@Table(name = "Player") //table in our database
 public class Player {
     @Id
     @SequenceGenerator(
@@ -17,10 +17,35 @@ public class Player {
             strategy = GenerationType.SEQUENCE,
             generator = "player_sequence"
     )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
+    @Column(
+            name = "first_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String fName;
+    @Column(
+            name = "last_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String lName;
+    @Column(
+            name = "phone",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String phone;
+    @Column(
+            name = "email",
+            nullable = false,
+            columnDefinition = "TEXT",
+            unique = true
+    )
     private String email;
     //player entity is the owner side of the relation
     @ManyToMany
@@ -64,19 +89,19 @@ public class Player {
         this.id = id;
     }
 
-    public String getfName() {
+    public String getFName() {
         return fName;
     }
 
-    public void setfName(String fName) {
+    public void setFName(String fName) {
         this.fName = fName;
     }
 
-    public String getlName() {
+    public String getLName() {
         return lName;
     }
 
-    public void setlName(String lName) {
+    public void setLName(String lName) {
         this.lName = lName;
     }
 
@@ -104,7 +129,7 @@ public class Player {
 //        this.games = games;
 //    }
 
-    // toString() method
+
 
 
     @Override

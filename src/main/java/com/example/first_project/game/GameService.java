@@ -17,6 +17,7 @@ public class GameService {
     public List<Game> getGames(){return gameRepository.findAll();}
 
     public void addNewGame(Game game){
+//        System.out.println(game);
         gameRepository.save(game);
     }
 }

@@ -8,16 +8,23 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "GAME")
+@Table(name = "Game")
 public class Game {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "game_sequence",
+            sequenceName = "game_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "game_sequence"
+    )
     private Long id;
     private String name;
     private String result;
 
-    private String start;
-    private String end;
+    private String start_time;
+    private String end_time;
 
     @ManyToMany(mappedBy = "games")
     private Set<Player> players;
@@ -27,16 +34,16 @@ public class Game {
         this.id = id;
         this.name = name;
         this.result = result;
-        this.start = start;
-        this.end = end;
+        this.start_time = start;
+        this.end_time = end;
 
     }
 
     public Game(String name, String result, String start, String end) {
         this.name = name;
         this.result = result;
-        this.start = start;
-        this.end = end;
+        this.start_time = start;
+        this.end_time = end;
 
     }
 
@@ -67,20 +74,20 @@ public class Game {
         this.result = result;
     }
 
-    public String getStart() {
-        return start;
+    public String getStart_time() {
+        return start_time;
     }
 
-    public void setStart(String start) {
-        this.start = start;
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
     }
 
-    public String getEnd() {
-        return end;
+    public String getEnd_time() {
+        return end_time;
     }
 
-    public void setEnd(String end) {
-        this.end = end;
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
     }
 
 //    public Set<Player> getPlayers() {
@@ -97,8 +104,8 @@ public class Game {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", result='" + result + '\'' +
-                ", start='" + start + '\'' +
-                ", end='" + end + '\'' +
+                ", start_time='" + start_time + '\'' +
+                ", end_time='" + end_time + '\'' +
                 ", players=" + players +
                 '}';
     }

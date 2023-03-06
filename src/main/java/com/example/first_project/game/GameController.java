@@ -15,7 +15,7 @@ public class GameController {
     private final GameService gameService;
 
     @Autowired
-    public GameController(GameService gameService, GameRepository gameRepository) {
+    public GameController(GameService gameService) {
         this.gameService = gameService;
 
     }
@@ -24,8 +24,8 @@ public class GameController {
     public List<Game> getGames(){
         return gameService.getGames();
     }
-    @PostMapping("addGame")
-    public void addGame(Game game){
+    @PostMapping("postGame")
+    public void postGame(Game game){
         gameService.addNewGame(game);
     }
 }
