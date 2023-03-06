@@ -14,11 +14,14 @@ Junit jupiter: 5.9.2
 packaging: jar
 ```
 ## Requirements 
-	- two entities in postgreSQL jpa repository					[ ]
-	- Player and game											[ ]
-	- those entitites many to many relationship in database		[ ]
-	- API calls to make a player and game and to display them	[ ]
-	- swagger for client which implements the interface			[x]
+	- two entities in postgreSQL jpa repository	[x]				
+	- Player and game [x]											
+	- those entitites many to many relationship in database [x]		
+	- API calls to make a player and game and to display them [x]	
+	- swagger for client which implements the interface [x]
+	- adding rest of CRUD functionalities []
+	- use best practice of api endpoints []
+	- adding the authentication []
 
 ### Player fields
 	- id, name, lastname, phone, email
