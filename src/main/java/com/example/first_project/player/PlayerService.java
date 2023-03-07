@@ -2,7 +2,7 @@ package com.example.first_project.player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-
+import java.util.Optional;
 
 
 //BUSINESS LOGIC
@@ -17,6 +17,8 @@ public class PlayerService {
     public List<Player> getPlayers(){
         return playerRepository.findAll();
     }
+
+
 
     public void addNewPlayer(Player player) {
         playerRepository.save(player);
@@ -52,6 +54,9 @@ public class PlayerService {
             }
         }
         return null;
+    }
+    public Optional<Player> findPlayerById(Long id){
+        return playerRepository.findById(id);
 
     }
 

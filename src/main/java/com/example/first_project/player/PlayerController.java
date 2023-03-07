@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/player")
+@RequestMapping(path = "api/v1/players")
 public class PlayerController {
 
     private final PlayerService playerService;
@@ -16,32 +17,41 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @GetMapping("/findAll")
+
+    //==========GET MAPPINGS==========\\
+
+    @GetMapping()
     public List<Player> getPlayers(){
         return playerService.getPlayers();
     }
 
-    @PostMapping("add")
+
+    @GetMapping("/email")
+    public Player findPlayerByEmail(@RequestParam(name = "email") String email){
+        return playerService.findPlayerByEmail(email);
+    }
+
+    @GetMapping("/id")
+    public Optional<Player> findPlayerById(@RequestParam(name = "id") Long id){
+        return playerService.findPlayerById(id);
+    }
+
+
+    //==========POST MAPPINGS==========\\
+
+    @PostMapping("player")
     public void addPlayer(@RequestBody Player player){
         playerService.addNewPlayer(player);
     }
 
-    @GetMapping("/{email}")
-    public Player findPlayerByEmail(@PathVariable(name = "email") String email){
-        return playerService.findPlayerByEmail(email);
-    }
+    //==========DELETE MAPPINGS==========\\
 
-    @GetMapping("findById")
-    public Player findPlayerById(){
-        return null;
-    }
-
-    @DeleteMapping("/remove/{id}")
-    public boolean  deletePlayer(@PathVariable("id") Long id){
+    @DeleteMapping("/id")
+    public boolean  deletePlayer(@RequestParam(name = "id") Long id){
         return playerService.deletePlayer(id);
     }
-    @DeleteMapping("/removeByEmail/{email}")
-    public boolean deletePlayerByEmail(@PathVariable("email") String email){
+    @DeleteMapping("/email")
+    public boolean deletePlayerByEmail(@RequestParam(name = "email") String email){
         return playerService.deletePlayerByEmail(email);
     }
 }
