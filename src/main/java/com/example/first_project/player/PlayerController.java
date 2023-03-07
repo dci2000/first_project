@@ -16,7 +16,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @GetMapping("displayAll")
+    @GetMapping("/findAll")
     public List<Player> getPlayers(){
         return playerService.getPlayers();
     }
@@ -25,4 +25,24 @@ public class PlayerController {
     public void addPlayer(@RequestBody Player player){
         playerService.addNewPlayer(player);
     }
+
+    @GetMapping("/{email}")
+    public Player findPlayerByEmail(@PathVariable(name = "email") String email){
+        return playerService.findPlayerByEmail(email);
+    }
+
+    @GetMapping("findById")
+    public Player findPlayerById(){
+        return null;
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public boolean  deletePlayer(@PathVariable("id") Long id){
+        return playerService.deletePlayer(id);
+    }
+    @DeleteMapping("/removeByEmail/{email}")
+    public boolean deletePlayerByEmail(@PathVariable("email") String email){
+        return playerService.deletePlayerByEmail(email);
+    }
 }
+
