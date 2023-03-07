@@ -19,7 +19,7 @@ packaging: jar
 	- those entitites many to many relationship in database [x]		
 	- API calls to make a player and game and to display them [x]	
 	- swagger for client which implements the interface [x]
-	- adding rest of CRUD functionalities []
+	- adding rest of CRUD functionalities [x]
 	- use best practice of api endpoints [x]
 	- adding the authentication []
 	- fix the authentication package []
